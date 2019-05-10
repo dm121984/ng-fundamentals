@@ -17,6 +17,13 @@ export class AuthService {
     return true;
   }
 
+  updateCurrentUser(firstName: string, lastName: string) {
+    if (!!this.currentUser) {
+      this.currentUser.firstName = firstName;
+      this.currentUser.lastName = lastName;
+    }
+  }
+
   isAuthenticated() {
     return !!this.currentUser;
   }

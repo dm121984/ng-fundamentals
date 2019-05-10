@@ -6,7 +6,7 @@ import { ToastrServiceWrapper } from '../helper/toastr.service';
 @Component({
   templateUrl: './login.component.html',
   styles: [`
-  em {float:right; color: Red; padding-left:10px}
+    em {float:right; color: Red; padding-left:10px}
   `]
 })
 export class LoginComponent {
