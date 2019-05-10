@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
 import { EventRouteActivatior } from './events/event-details/event-route-activator.service';
 import { EventListResolver } from './events/event-list-resolver.service';
+import { AuthService } from './user/auth.service';
 
 
 
@@ -41,7 +42,8 @@ import { EventListResolver } from './events/event-list-resolver.service';
     ToastrServiceWrapper,
     EventRouteActivatior,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
-    EventListResolver
+    EventListResolver,
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })

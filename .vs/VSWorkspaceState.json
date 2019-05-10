@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\errors",
+    "\\src\\app\\events",
+    "\\src\\app\\events\\shared",
+    "\\src\\app\\helper",
+    "\\src\\app\\nav",
+    "\\src\\app\\user"
+  ],
+  "SelectedNode": "\\src\\app\\app.module.ts",
+  "PreviewInSolutionExplorer": false
+}
