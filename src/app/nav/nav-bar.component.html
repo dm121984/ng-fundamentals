@@ -1,7 +1,7 @@
 <div class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">ngEvents</a>
+      <a class="navbar-brand" [routerLink]="['/events']">ngEvents</a>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -25,7 +25,7 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/user/login']">Login</a>
+            <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/user/login']" routerLinkActive="active">Login</a>
             <a *ngIf="authService.isAuthenticated()" [routerLink]="['/user/profile']" routerLinkActive="active">Welcome {{authService.currentUser.firstName}}</a>
           </li>
         </ul>

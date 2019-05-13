@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    let firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z.*]')]);
+    let firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z]*')]);
     let lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
 
     this.profileForm = new FormGroup({
@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
   }
 
   saveprofile(profile) {
+    console.log(profile);
     if (!this.profileForm.valid) {
       return;
     }
