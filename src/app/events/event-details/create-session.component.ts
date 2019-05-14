@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrServiceWrapper } from '../../helper/toastr.service';
@@ -7,6 +7,7 @@ import { restrictedWords } from '../shared/restricted-words.validator';
 
 
 @Component({
+  selector: 'create-session',
   templateUrl: './create-session.component.html',
   styles: [`
     em {float:right; color: Red; padding-left:10px}   
@@ -14,6 +15,8 @@ import { restrictedWords } from '../shared/restricted-words.validator';
 })
 export class CreateSessionComponent implements OnInit {
 
+  @Output() saveNewSessionEvent = new EventEmitter();
+  @Output() cancelAdd = new  EventEmitter();
   newSessionForm: FormGroup;
   name: FormControl;
   presenter: FormControl;
@@ -52,13 +55,13 @@ export class CreateSessionComponent implements OnInit {
         abstract: value.abstract,
         voters: []
       }
-      console.log(session);
+      this.saveNewSessionEvent.emit(session);
     }
     else {
       this.tService.error('Enter all the required data.');
     }
   }
   cancel() {
-    this.router.navigate(['/events']);
+    this.cancelAdd.emit();
   }
 }

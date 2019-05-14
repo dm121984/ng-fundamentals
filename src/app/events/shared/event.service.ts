@@ -22,7 +22,11 @@ export class EventService {
     event.sessions=[];
     return EVENTS.push(event);
   }
-  
+
+  updateEvent(currentEvent: IEvent) {
+    let index = EVENTS.findIndex(event => event.id == currentEvent.id);
+    EVENTS[index] = currentEvent;
+  }
 }
 const EVENTS: IEvent[] = [
   {
