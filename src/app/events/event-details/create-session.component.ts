@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrServiceWrapper } from '../../helper/toastr.service';
 import { ISession } from '../shared/event.model';
+import { restrictedWords } from '../shared/restricted-words.validator';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class CreateSessionComponent implements OnInit {
     this.presenter = new FormControl('', Validators.required);
     this.duration = new FormControl('', Validators.required);
     this.level = new FormControl('', Validators.required);
-    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400)]);
+    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictedWords(['foo', 'bar'])]);
 
     this.newSessionForm = new FormGroup({
       name: this.name,
@@ -38,6 +39,7 @@ export class CreateSessionComponent implements OnInit {
       abstract: this.abstract
     });
   }
+
 
   saveSession(value) {
     if (this.newSessionForm.valid) {

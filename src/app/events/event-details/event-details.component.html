@@ -20,5 +20,7 @@
         {{event?.location?.city}}, {{event?.location?.country}}
       </address>
     </div>
-  </div>  
+  </div>
+  <hr />
+  <session-list [sessions]="event?.sessions"></session-list>
 </div>
